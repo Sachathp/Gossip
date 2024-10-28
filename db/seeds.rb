@@ -13,7 +13,7 @@ end
     description: Faker::Lorem.sentence,
     email: Faker::Internet.email,
     age: rand(18..65),
-    city: City.all.sample 
+    city: City.all.sample
   )
 end
 
@@ -22,7 +22,7 @@ end
   Gossip.create(
     title: Faker::Lorem.sentence(word_count: 3),
     content: Faker::Lorem.paragraph,
-    user: User.all.sample 
+    user: User.all.sample
   )
 end
 
@@ -43,7 +43,7 @@ end
     sender: User.all.sample
   )
 
-  recipients = User.where.not(id: pm.sender.id).sample(rand(1..3)) 
+  recipients = User.where.not(id: pm.sender.id).sample(rand(1..3))
   recipients.each do |recipient|
     PrivateMessageRecipient.create(private_message: pm, user: recipient)
   end
